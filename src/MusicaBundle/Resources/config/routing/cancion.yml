@@ -1,0 +1,24 @@
+cancion_index:
+    path:     /
+    defaults: { _controller: "MusicaBundle:Cancion:index" }
+    methods:  GET
+
+cancion_show:
+    path:     /{id}/show
+    defaults: { _controller: "MusicaBundle:Cancion:show" }
+    methods:  GET
+
+cancion_new:
+    path:     /new
+    defaults: { _controller: "MusicaBundle:Cancion:new" }
+    methods:  [GET, POST]
+
+cancion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MusicaBundle:Cancion:edit" }
+    methods:  [GET, POST]
+
+cancion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MusicaBundle:Cancion:delete" }
+    methods:  DELETE

@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Artistas</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Anio</th>
+                <th>Genero</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artistum in artistas %}
+            <tr>
+                <td><a href="{{ path('artista_show', { 'id': artistum.id }) }}">{{ artistum.id }}</a></td>
+                <td>{{ artistum.nombre }}</td>
+                <td>{{ artistum.anio }}</td>
+                <td>{{ artistum.genero }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artista_show', { 'id': artistum.id }) }}">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artista_edit', { 'id': artistum.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

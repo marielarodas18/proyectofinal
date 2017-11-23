@@ -1,0 +1,44 @@
+MusicaBundle\Entity\Cancion:
+    type: entity
+    table: Cancion
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        cancion:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: Cancion
+        duracion:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: Duracion
+        disco:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: Disco
+    manyToMany:
+        artista:
+            targetEntity: Artista
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: cancion
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

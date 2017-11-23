@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Canciones</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cancion</th>
+                <th>Duracion</th>
+                <th>Disco</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cancion in cancions %}
+            <tr>
+                <td><a href="{{ path('cancion_show', { 'id': cancion.id }) }}">{{ cancion.id }}</a></td>
+                <td>{{ cancion.cancion }}</td>
+                <td>{{ cancion.duracion }}</td>
+                <td>{{ cancion.disco }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cancion_show', { 'id': cancion.id }) }}">Detalle</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cancion_edit', { 'id': cancion.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

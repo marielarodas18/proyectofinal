@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Detalle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ artistum.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ artistum.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Anio</th>
+                <td>{{ artistum.anio }}</td>
+            </tr>
+            <tr>
+                <th>Genero</th>
+                <td>{{ artistum.genero }}</td>
+            </tr>
+            <tr>
+
+                        <td><b>Canciones</b></td>
+                        <ol>
+                          <td>
+                            {% for cancion in artistum.cancion %}
+                              <li>{{ cancion.cancion }}</li>
+                            {% endfor %}
+                          </td>
+                        <ol>
+
+                    </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artista_index') }}">Regresar</a>
+        </li>
+        <li>
+            <a href="{{ path('artista_edit', { 'id': artistum.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

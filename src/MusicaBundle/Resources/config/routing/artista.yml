@@ -1,0 +1,24 @@
+artista_index:
+    path:     /
+    defaults: { _controller: "MusicaBundle:Artista:index" }
+    methods:  GET
+
+artista_show:
+    path:     /{id}/show
+    defaults: { _controller: "MusicaBundle:Artista:show" }
+    methods:  GET
+
+artista_new:
+    path:     /new
+    defaults: { _controller: "MusicaBundle:Artista:new" }
+    methods:  [GET, POST]
+
+artista_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MusicaBundle:Artista:edit" }
+    methods:  [GET, POST]
+
+artista_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MusicaBundle:Artista:delete" }
+    methods:  DELETE

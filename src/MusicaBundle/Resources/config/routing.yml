@@ -1,0 +1,11 @@
+musica_artista:
+    resource: "@MusicaBundle/Resources/config/routing/artista.yml"
+    prefix:   /artista
+
+musica_cancion:
+        resource: "@MusicaBundle/Resources/config/routing/cancion.yml"
+        prefix:   /cancion
+
+musica_homepage:
+    path:     /
+    defaults: { _controller: MusicaBundle:Default:index }

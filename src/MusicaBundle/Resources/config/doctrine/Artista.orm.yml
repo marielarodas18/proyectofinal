@@ -1,0 +1,53 @@
+MusicaBundle\Entity\Artista:
+    type: entity
+    table: Artista
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: Nombre
+        anio:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: Anio
+        genero:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: Genero
+    manyToMany:
+        cancion:
+            targetEntity: Cancion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: artista
+            joinTable:
+                name: artista__cancion
+                joinColumns:
+                    -
+                        name: artista_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: cancion_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

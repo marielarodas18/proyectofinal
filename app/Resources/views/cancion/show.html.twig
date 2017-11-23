@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Detalle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cancion.id }}</td>
+            </tr>
+            <tr>
+                <th>Cancion</th>
+                <td>{{ cancion.cancion }}</td>
+            </tr>
+            <tr>
+                <th>Duracion</th>
+                <td>{{ cancion.duracion }}</td>
+            </tr>
+            <tr>
+                <th>Disco</th>
+                <td>{{ cancion.disco }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cancion_index') }}">Regresar</a>
+        </li>
+        <li>
+            <a href="{{ path('cancion_edit', { 'id': cancion.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
